@@ -1,0 +1,115 @@
+<%- include('includes/navbar') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus grupos</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h3>SEUS GRUPOS</h3>
+    <table id="grupos">
+        
+        <% grupos.forEach(grupo => { %>
+          <tr>
+            <td> <%= grupo.nome %> 
+             </td>
+            
+
+            <td style="border-left: hidden;">
+            <span class="cargo"> <%= grupo.cargo %></span>
+            </td>
+
+            <% if(grupo.cargo == 'ADMIN' ) {%>
+            <td style="border-left: hidden;">
+            <span class="info"><a href="/grupos/<%=grupo.id%>/adicionar-membro" style="text-decoration: none; color: black;">+</a></span>
+            </td>
+          <% } else { %>
+            <td style="border-left: hidden;">
+                </td>
+                <% } %>
+                <td>
+                    <a href="/grupos/<%= grupo.id %>" style="color: black;">➜</a>
+                </td>
+          </tr>
+
+        <% }) %>
+    </table>
+    <br><br>
+    <main role="main">
+        <button id="invoke" class="warn">Criar novo grupo</button>
+        <dialog>
+          <form action="/grupos/cadastrar" method="post">
+            <label for="titulo">Nome:</label>
+            <input type="text" name="nome">  <br>
+        
+          
+            <menu>
+              <butto class="cancel">Cancelar</button>
+              <button type="submit">Criar</button>
+            </menu>
+          </form>
+        </dialog>
+        <output aria-live="polite"></output>
+      </main>
+      <main role="main">
+        <dialog>
+          <form action="/grupos/cadastrar" method="post">
+            <label for="titulo">Nome:</label>
+            <input type="text" name="nome">  <br>
+        
+          
+            <menu>
+              <butto class="cancel">Cancelar</button>
+              <button type="submit">Criar</button>
+            </menu>
+          </form>
+        </dialog>
+        <output aria-live="polite"></output>
+      </main>
+    <script>
+      const dialog = document.querySelector('dialog'),
+        invoke = document.getElementById('invoke'),
+        output = document.querySelector('output'),
+        cancel = dialog.querySelector('.cancel');
+      
+      if (typeof dialog.showModal !== 'function') {
+        output.value = `Modal dialog not supported`;
+      }
+      
+      invoke.addEventListener('click', () => {
+        dialog.returnValue = false;
+        dialog.showModal();
+      });
+      
+      dialog.addEventListener('close', () => {
+        dialog.returnValue = dialog.returnValue.toLowerCase() === 'true';
+        output.value = dialog.returnValue;
+      });
+      
+      cancel.addEventListener('click', () => {
+        dialog.close(false);
+      });
+      
+      dialog.addEventListener('click', (e) => {
+        const rect = dialog.getBoundingClientRect();
+      
+        const inDialog =
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width;
+      
+        !inDialog && dialog.close();
+      });
+      
+      
+      
+      
+      </script>
+</body>
+</html>

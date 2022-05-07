@@ -1,0 +1,19 @@
+<%- include('includes/head') %>
+ <head>
+    <link href="/css/login.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+    </head>
+<body>
+<br>
+<h2>Tela de Login</h2>
+<br>
+<div class="login">
+    <form action="/users/login" method="post">
+        <input type="email" name="email" placeholder="Email">
+        <br/><br/><br>
+        <input type="password" name="senha" placeholder="Senha">
+        <br/><br/><br>
+        <button type="submit">Logar</button>
+    </form>
+</div>
+</body>

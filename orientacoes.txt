@@ -1,0 +1,44 @@
+1. (1,0) Tela inicial com o nome d@ alun@ ou dupla e a listagem paginada (5 por
+página) de Grupos (nome do grupo + quantidade de membros) // OK
+
+2. (1,0) O usuário deve poder se cadastrar no sistema // OK
+
+3. (1,0) O usuário deve poder se autenticar no sistema // OK
+
+4. (1,0) O usuário pode criar um grupo de usuários (tem nome e mensagens), o qual
+ele é ADMIN // OK
+
+5. (1,0) O ADMIN do grupo pode adicionar outros membros, associando uma
+permissão de escrita ou leitura no grupo, informando o email do usuário. Mostrando
+uma mensagem de sucesso ou erro caso o usuário não exista.
+
+6. (1,0) O usuário administrador e usuários com permissão de escrita podem submeter
+mensagens no grupo. // OK
+
+7. (1,0) Os membros do grupo podem se enxergar com as suas permissões e também
+visualizar as mensagens (10 por página) // OK - falta paginação
+
+8. (1,0) O usuário pode ver a lista de grupos dos quais faz parte como membro ou
+administrador // OK
+
+9. (1,0) O usuário pode se remover de um grupo e, o usuário ADMIN também pode
+remover alguém do grupo // OK 
+
+
+Grupo:
+Nome
+Owner (id do usuário dono do grupo)
+
+Mensagens dos grupos:
+ID do usuário que enviou
+Quando enviou
+Texto
+
+Sugestão:
+Crie uma tabela que guarde as relações de grupo e usuários, bem como a
+informação de se o usuário é MEMBRO ou ADMIN do grupo.
+
+
+ COISAS A FAZER
+
+ mensagem de erro do login

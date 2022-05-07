@@ -1,0 +1,81 @@
+<%- include('includes/navbar') %>
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>   
+    <br>
+    <div class="membros">
+        <h3> <%= grupo.nome %> </h3>
+        <% if(cargo != 'admin') { %>
+                <button style="background: rgba(255, 191, 70, 0.7);"><a href="/grupos/<%=grupo.id%>/elimina-membro/<%=user.id%>" style="text-decoration: none; color: black;">
+                   Sair do grupo
+                </a></button>
+            <% } %>
+
+        <h5>Membros</h5>
+        <% membros.forEach(membro=> { %>
+            <div class="membro">
+                <%=membro.nome%>
+                <%=membro.permissao%>
+                <%=membro.cargo%>
+                <% if(cargo =='admin' && membro.id !== user.id) { %>
+                    <a href="/grupos/<%=grupo.id%>/elimina-membro/<%=membro.id%>" style="text-decoration: none; color: black;">✖</a>
+                    <% } %>
+            </div>
+            <% }) %>
+
+        </div>
+
+    <div class="chat">
+
+        <% mensagens.forEach(msg => { %>
+
+            <% if (user.id == msg.iduser) { %>
+                <div class="balloon-set-box right">
+                    <div class="nome">
+                        <%= msg.nome %>
+                    </div>
+
+                <div class="balloon">
+                    <div class="mensagem">
+                        <%= msg.mensagem %>
+                    </div>
+
+                    <div class="horaedia">
+                        <%=new Date(msg.horaedia).toLocaleString().substring(0, 10);%>
+                    </div>
+
+                </div>
+            </div>
+                <% } else { %>
+                    <div class="balloon-set-box left">
+                        <div class="nome">
+                            <%= msg.nome %>
+                        </div>
+
+                    <div class="balloon">
+                        
+                        <div style="float: left; font-size: 14px;">
+                            <%= msg.mensagem %>
+                        </div>
+
+                        <div style="text-align: left; font-size: 9px; font-weight: bold; line-height: 20px;">
+                            <%=new Date(msg.horaedia).toLocaleString().substring(0, 10);%>
+                        </div>
+
+                    </div>
+                </div>
+
+    <% } %>
+    <% }) %>
+    <% if (permissao == 'LE') { %>
+        <form action="/mensagens/<%=grupo.id%>/enviar" method="post">
+            <div style="position: relative; display: block;">
+            <input type="text" placeholder="Escreva uma mensagem..." name="mensagem" style="border-radius: 40px; border: 0; padding: 15px;">
+            <input type="submit" value="➤" style="border: 0; padding: 15px; background: transparent;">
+        </div>
+        </form>
+            </div>
+        <% } %>
+</body>

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+
+nav {
+    background: rgba(20, 52, 43, 0.9);
+    display:flex;
+
+    margin-top: -1%; 
+    margin-left: 3.5%;
+    margin-right: 2%;
+    border-radius:0% 0% 10% 10%; 
+    }
+    
+
+img {
+    width: 15%;
+    height: 5%
+
+}
+
+h4 {
+    text-align: left;
+    font-family: 'Inter',  sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: #FFD5C2;
+    margin-left: 2%;   
+}
+
+body {
+    font-family: 'Inter',  sans-serif;
+    font-style: normal;
+    color: black;
+    text-align: center;
+}
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+  }
+
+  td {
+      padding-left: 18px;
+      padding-top: 13px;
+      padding-right: 18px;
+      padding-bottom: 13px;
+  }
+
+.cargo {
+    background-color: rgba(211, 165, 136, 0.4);
+    padding: 5px;
+}
+
+.info {
+  height: 25px;
+  width: 25px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+/*
+.novoGrupo {
+    display: block;
+    border: none;
+    padding: 15px;
+    background: rgba(255, 191, 70, 0.7);
+    border-radius: 20px;
+}*/
+
+#grupos {
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+:root {
+    --bg: rgba(185, 185, 183, 0.938);
+    --color: #ffffff;
+    --button-bg: rgb(50, 52, 61);
+    --button-color: #000;
+    --warn-bg: rgba(255, 191, 70, 0.7);
+    --modal-color: rgb(155, 155, 160);
+    font-family: 'Inter',  sans-serif;
+  }
+  /*menu,
+  nav {
+    margin-top: -1%; 
+    margin-left: 3.5%;
+    margin-right: 2%;
+  }*/
+  main {
+    padding: 15px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+  label{
+      color: black;
+  }
+  button {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    border: none;
+    height: 36px;
+    line-height: 1;
+    padding: 0 22px;
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    user-select: none;
+    text-decoration: none;
+  }
+  button small {
+    margin-left: 4px;
+    opacity: 0.9;
+  }
+  button small i {
+    margin-right: 1px;
+  }
+  button.warn,
+  button[type='submit'] {
+    background-color: var(--warn-bg);
+  }
+  dialog {
+    border: none;
+    border-radius: 4px;
+    color: var(--modal-color);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    background-color: var(--bg);
+  }
+  dialog::backdrop {
+    background: linear-gradient(
+      45deg,
+      rgb(18, 18, 20, 0.4),
+      rgb(17, 17, 20, 0.8)
+    );
+  }
+  dialog[open] {
+    animation: scale 0.3s ease normal;
+  }
+  dialog[open]::backdrop {
+    animation: backdrop 0.3s ease normal;
+  }
+  dialog.hide {
+    animation-direction: reverse;
+  }
+  dialog menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-content: center;
+    gap: 12px;
+  }
+  dialog menu small {
+    margin-right: auto;
+  }
+  dialog i.cancel {
+    cursor: pointer;
+    padding: 0 5px;
+    float: right;
+  }
+  output {
+    color: var(--color);
+  }
+  @keyframes scale {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @keyframes backdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .chat {
+margin-left: 35%;
+margin-right: auto;
+width: 50%;
+height: 100%;
+background: rgba(211, 243, 238, 0.6);
+border-radius: 50px;
+overflow: auto;
+  }
+
+  .balloon-set-box {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .balloon-set-box.left { 
+    flex-direction: row;
+  }
+  .balloon-set-box.right { 
+    flex-direction: row-reverse; 
+  }
+  .balloon {
+    position: relative; 
+    display: inline-block;
+    max-width: 300px;
+    margin: 25px 10px 10px; 
+    padding: 8px 10px; 
+    background: #d4ebcf; 
+    text-align: left; 
+    border-radius: 15px;
+  }
+  .balloon::after {
+    content: '';
+    border: 14px solid transparent;
+    border-top-color: #d4ebcf; 
+    position: absolute;
+    top: 0;
+  }
+  .left .balloon::after { 
+    left: -10px;
+  }
+  .right .balloon::after { 
+    right: -10px;
+  }
+  
+.nome {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .horaedia {
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    text-align: right;
+  }
+
+  .mensagem {
+      text-align: right;
+      font-size: 14.5px;
+  }
+  
+  .membros {
+    width: 20%;
+    height: 95%;
+    float: left;
+  }
+
+  .membro {
+    line-height: 20px;
+    padding: 18px;
+    overflow: hidden;
+  }

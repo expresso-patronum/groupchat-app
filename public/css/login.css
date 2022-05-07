@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+body {
+font-family: 'Inter',  sans-serif;
+font-style: normal;
+color: black;
+text-align: center;
+}
+
+form {
+margin:auto !important;
+padding-top: 20%;
+padding-bottom: 30%;
+padding-left: 5%;
+padding-right: 5%;
+background: #FFFFFF;
+border: 1px solid #000000;
+}
+
+input {
+background: #D3F3EE;
+margin: auto;
+width: 90%;
+height: 8%;
+border: none;
+}
+
+button {
+position: relative;
+width: 200px;
+height: 50px;
+background: rgba(255, 191, 70, 0.7);
+border-radius: 40px;
+border:none;
+}
+
+.login {
+    margin-left: 38%;
+    margin-right: 38%;
+}

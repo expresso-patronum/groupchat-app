@@ -1,0 +1,16 @@
+<%- include('includes/navbar') %>
+<head>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <form action="" method="post">
+        <label for="email">E-mail</label>
+        <input type="text" name="email">
+
+        <select name="permissao" style="border: none;" required>
+            <option value="SL">Somente leitura</option>
+            <option value="LE">Leitura e escrita</option>
+        </select>
+        <button type="submit">Adicionar membro</button>
+    </form>
+</body>

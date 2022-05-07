@@ -1,0 +1,29 @@
+
+<%- include('includes/navbar') %>
+
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Página inicial</title>
+</head>
+<body>
+    <h2>Lista de todos os grupos</h2>
+
+    <table id="grupos">
+        <% grupos.forEach(grupo => { %>
+          <tr>
+          <th>Nome</th>
+          <th>Membros</th>
+        </tr>
+          <tr>
+            <td><%= grupo.nome %> </td>
+            <td><%=grupo.qt%></td>
+          </tr>
+        <% }) %>
+<h3><%= total %> grupos</h3>
+        <div class="links">
+          <% for (let i = 1; i <= Math.ceil(total/5); i++) { %>
+            <a class="pages" href="/?page=<%= i %>"><%= i %></a>
+          <% } %>
+        </div>
+    </table>
+</body>
