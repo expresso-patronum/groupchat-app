@@ -11,13 +11,12 @@ class GrupoDAO {
 
 static async cadastrar(nome, user){
     const sql1= 'INSERT INTO public.grupo(nome) values ($1)';
- const sql2 = 'SELECT grupo.id FROM grupo WHERE ID = (SELECT MAX(ID) FROM grupo)';
+    const sql2 = 'SELECT grupo.id FROM grupo WHERE ID = (SELECT MAX(ID) FROM grupo)';
     const result1 = await dbcon.query(sql1, [nome]);
-  const result2 = await dbcon.query(sql2);//
-  const ultimoId= result2.rows[0].id;
-  console.log(ultimoId)
-   const sql3=  "INSERT INTO grupousuario(grupo, usuario, cargo, permissao) values ($1, $2, 'admin','LE')";
-const result3= await dbcon.query(sql3, [ultimoId, user.id]);
+    const result2 = await dbcon.query(sql2);
+    const ultimoId= result2.rows[0].id;
+    const sql3=  "INSERT INTO grupousuario(grupo, usuario, cargo, permissao) values ($1, $2, 'admin','LE')";
+    const result3= await dbcon.query(sql3, [ultimoId, user.id]);
 
 }
 
@@ -32,7 +31,6 @@ const result3= await dbcon.query(sql3, [ultimoId, user.id]);
     static async contar(){
         const sql = 'SELECT COUNT(*) FROM grupo;'
         const result= await dbcon.query(sql);
-        console.log(result.rows)
         return result.rows[0].count;
 
     }

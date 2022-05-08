@@ -25,7 +25,6 @@ class MensagemDAO {
         const sql = 'SELECT u.id as iduser, u.nome as nome, u.email as email, m.id as idmensagem, m.mensagem as mensagem, m.horaedia as horaedia FROM mensagens m JOIN usuario u ON u.id = m.usuario WHERE m.grupo = $1 LIMIT $2 OFFSET $3';
        
             const result = await dbcon.query(sql, [id, limit, offset]);
-            console.log(result)
             return result.rows;
        
     }
@@ -33,7 +32,6 @@ class MensagemDAO {
     static async contar(id){
         const sql = 'SELECT COUNT(*) FROM mensagens JOIN grupo ON mensagens.grupo = grupo.id WHERE grupo = $1';
         const result= await dbcon.query(sql, [id]);
-        console.log(result.rows)
         return result.rows;
     }
 

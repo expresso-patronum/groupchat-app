@@ -8,8 +8,6 @@ const { UsuarioDAO } = require('../models/usuario');
 class GruposController {
 
    async cadastrar(req, res) {
-console.log(req.body)
-console.log(req.session.user)
 
 const { nome } = req.body;
         
@@ -27,7 +25,6 @@ return res.redirect('/');
         const offset = limit * (page - 1);
     
         const grupos = await GrupoDAO.listar(limit,offset);
-        console.log(grupos);
         const total = await GrupoDAO.contar();
         return res.render('tela-inicial', { user: req.session.user, grupos , total, page} )
       }

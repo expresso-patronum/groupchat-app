@@ -35,7 +35,6 @@ app.get('/', async (req, res) => {
     const offset = limit * (page - 1);
 
     const grupos = await GrupoDAO.listar(limit,offset);
-    console.log(grupos);
     const total = await GrupoDAO.contar();
     return res.render('tela-inicial', { user: req.session.user, grupos , total, page} )
 });

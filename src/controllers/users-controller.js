@@ -3,8 +3,6 @@ const { Usuario, UsuarioDAO } = require('../models/usuario');
 
 class UsersController {
     async cadastrar(req, res) {
-        console.log(`Cadastrando um usuário`);
-        console.log({ body: req.body });
         const { nome, email, senha } = req.body;
         const usuarioEncontrado = await UsuarioDAO.buscaPeloEmail(email);
 
