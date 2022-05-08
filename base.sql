@@ -7,9 +7,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE grupo(
     id serial PRIMARY KEY,
-    nome VARCHAR ( 500 ) NOT NULL,
-   /* dono int NOT NULL,
-    FOREIGN KEY (dono) REFERENCES usuario(id)*/
+    nome VARCHAR ( 500 ) NOT NULL
 );
 
 /* tipo do usuário */

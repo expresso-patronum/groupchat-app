@@ -19,6 +19,7 @@
                 <%=membro.nome%>
                 <%=membro.permissao%>
                 <%=membro.cargo%>
+
                 <% if(cargo =='admin' && membro.id !== user.id) { %>
                     <a href="/grupos/<%=grupo.id%>/elimina-membro/<%=membro.id%>" style="text-decoration: none; color: black;">✖</a>
                     <% } %>
@@ -71,11 +72,19 @@
     <% }) %>
     <% if (permissao == 'LE') { %>
         <form action="/mensagens/<%=grupo.id%>/enviar" method="post">
-            <div style="position: relative; display: block;">
+            <div style="position: relative; bottom: 0; padding-left: 10%;">
             <input type="text" placeholder="Escreva uma mensagem..." name="mensagem" style="border-radius: 40px; border: 0; padding: 15px;">
-            <input type="submit" value="➤" style="border: 0; padding: 15px; background: transparent;">
+            <input type="submit" value="➤" style="border: 0;  background: transparent;">
         </div>
         </form>
             </div>
         <% } %>
+
+
+        
+        <div class="links">
+            <% for (let i = 1; i <= Math.ceil(total[0].count/10); i++) { %>
+                <a class="pages" href="/grupos/<%=grupo.id%>/?page=<%= i %>"><%= i %></a>
+            <% } %>
+        </div>
 </body>

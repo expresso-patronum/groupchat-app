@@ -65,7 +65,7 @@ const result3= await dbcon.query(sql3, [ultimoId, user.id]);
 
     static async grupoUsuario(id) {
        // const sql = 'SELECT p.id, p.nome, (SELECT COUNT(*) FROM grupousuario p2 WHERE p2.grupo = p.id) as qt, ARRAY_AGG(p3) as usuarios FROM grupo p LEFT JOIN grupousuario p3 ON p3.grupo = p.id WHERE $1 IN (SELECT p2.id FROM grupousuario p2 WHERE p2.grupo = p.id) GROUP BY p.id';
-       const sql = 'select grupo.nome, grupo.id, usuario.id as iddousuario, upper(grupousuario.cargo) as cargo, grupousuario.permissao from grupousuario join grupo on grupousuario.grupo = grupo.id join usuario on grupousuario.usuario = usuario.id where usuario.id = $1'
+       const sql = 'select grupo.nome, grupo.id, usuario.id as idUser, upper(grupousuario.cargo) as cargo, grupousuario.permissao from grupousuario join grupo on grupousuario.grupo = grupo.id join usuario on grupousuario.usuario = usuario.id where usuario.id = $1'
        
        const result = await dbcon.query(sql, [id]);
         return result.rows;

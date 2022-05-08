@@ -7,13 +7,18 @@ class UsersController {
     async cadastrar(req, res) {
         console.log(`Cadastrando um usuário`);
         console.log({ body: req.body });
-
         const { nome, email, senha } = req.body;
+        const usuarioEncontrado = await UsuarioDAO.buscaPeloEmail(email);
+
+        if(usuarioEncontrado) {
+            return res.render('erro', {erro: 'E-mail em uso'});
+        } else {
 
         const usuario = new Usuario(null, nome, email, senha);
         await UsuarioDAO.cadastrar(usuario);
 
         return res.redirect('/');
+        }
     }
 
 
