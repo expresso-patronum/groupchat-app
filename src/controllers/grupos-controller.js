@@ -1,7 +1,5 @@
 
 
-//const { nanoid } = require('nanoid');
-//const { dbcon } = require('../config/connection-db');
 const { Grupo, GrupoDAO } = require('../models/grupo');
 const { GrupoUsuario, GrupoUsuarioDAO } = require('../models/grupousuario');
 const { MensagemDAO } = require('../models/mensagem');
@@ -17,24 +15,20 @@ const { nome } = req.body;
         
 const grupo = new Grupo(null, nome);
 await GrupoDAO.cadastrar(nome, req.session.user);
-//await GrupoDAO.cadastrarAdmin(grupo, req.session.user)
  
 return res.redirect('/');
-    }
+}
 
     async listar(req, res) {
-        // const total = await GrupoDAO.totalGrupos(); para fazer paginação
-        //const result = await dbcon.query('SELECT * FROM grupo');
-        //console.log({ result });
         let { page } = req.query;
         console.log({ page });
         page = page || 1;
         const limit = 5;
         const offset = limit * (page - 1);
     
-        const grupos = await GrupoDAO.listar(limit,offset) //Image.findAll({ offset, limit });
+        const grupos = await GrupoDAO.listar(limit,offset);
         console.log(grupos);
-        const total = await GrupoDAO.contar()//Image.count();
+        const total = await GrupoDAO.contar();
         return res.render('tela-inicial', { user: req.session.user, grupos , total, page} )
       }
 
@@ -64,8 +58,6 @@ return res.redirect('/');
     async grupoUsuario(req, res) {
        
        const grupos = await GrupoDAO.grupoUsuario(req.session.user.id);
-      //  const grupos = await GrupoDAO.grupoUsuario(user.id);;
-  // return res.send(grupos);
        return res.render('meus-grupos', { user: req.session.user, grupos: grupos })
     }
 
@@ -99,7 +91,6 @@ return res.redirect('/');
         if (grupo) {
             const idUser = await GrupoUsuarioDAO.buscaPorEmailId(email);
             const usuario = await UsuarioDAO.buscaPeloId(idUser);
-        //console.log(id, idUser, cargo, permissao, email)
         if(usuario) {
             const grupoUsuario = await GrupoUsuarioDAO.buscaPorMembro(id, idUser);
 
@@ -117,9 +108,6 @@ return res.redirect('/');
         res.redirect('/');
     }
 }
-
-
-
 
 }
 

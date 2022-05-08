@@ -1,6 +1,4 @@
 const { dbcon } = require("../config/connection-db");
-const { GrupoDAO } = require("../models/grupo");
-const { UsuarioDAO } = require("../models/usuario");
 
 class GrupoUsuario {
     constructor(id, usuario, grupo, cargo, permissao) {

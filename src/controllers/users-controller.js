@@ -1,6 +1,4 @@
-const bcrypt = require('bcrypt');
 const { compareSync } = require('bcrypt');
-const { dbcon } = require('../config/connection-db');
 const { Usuario, UsuarioDAO } = require('../models/usuario');
 
 class UsersController {
@@ -31,7 +29,6 @@ class UsersController {
                 const confere = compareSync(senha, senhaCrypt);
                 if (confere) {
                     req.session.user = user;
-                    //res.send('Login feito com sucesso!');
                     return res.redirect('/');
                 }
                 else  return res.render('erro', {erro: 'Senha errada'});

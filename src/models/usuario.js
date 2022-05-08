@@ -1,8 +1,5 @@
 const { dbcon } = require("../config/connection-db");
 const bcrypt = require('bcrypt');
-const res = require("express/lib/response");
-
-// postgres://mguhwyxzuehniz:513393b8847a572e661667b54ca6560f9da2239d6d569004b671a0580229af8f@ec2-52-54-212-232.compute-1.amazonaws.com:5432/dfoselo3bnj81h
 
 
 class Usuario {
@@ -14,7 +11,6 @@ class Usuario {
     }
 }
 
-// DAO = DATA ACCESS OBJECT
 class UsuarioDAO {
 
     static async buscaPeloEmail(email) {

@@ -6,8 +6,6 @@ const routes = Router();
 
 const gruposController = new GruposController();
 
-//routes.get('/', gruposController.listar);
-
 routes.get('/user', gruposController.grupoUsuario);
 
 routes.post('/cadastrar', gruposController.cadastrar);
@@ -15,13 +13,10 @@ routes.post('/cadastrar', gruposController.cadastrar);
 routes.get('/:id', gruposController.detalhar);
 
 routes.get('/:id/elimina-membro/:idUser', gruposController.eliminarMembro);
+
 routes.get('/:id/adicionar-membro', gruposController.mostraCadastroMembro);
-routes.post('/:id/adicionar-membro', gruposController.cadastrarMembro)
-//routes.post('/:id/adicionar-membro', gruposController.adicionaMembro);
 
-//routes.get('/cadastrar', gruposController.mostraCadastro);
-
-//routes.get('/deletar/:id', gruposController.deletar);
+routes.post('/:id/adicionar-membro', gruposController.cadastrarMembro);
 
 
 module.exports = routes;

@@ -1,5 +1,4 @@
 const { Mensagem, MensagemDAO } = require('../models/mensagem');
-const { Grupo, GrupoDAO } = require('../models/grupo');
 
 class MensagensController {
 
