@@ -1,1 +1,2 @@
-# TRAB2DS2
+# GroupChat
+https://groupchat2022-app.herokuapp.com/
