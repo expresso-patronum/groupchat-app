@@ -10,13 +10,13 @@ ele é ADMIN // OK
 
 5. (1,0) O ADMIN do grupo pode adicionar outros membros, associando uma
 permissão de escrita ou leitura no grupo, informando o email do usuário. Mostrando
-uma mensagem de sucesso ou erro caso o usuário não exista.
+uma mensagem de sucesso ou erro caso o usuário não exista. // OK
 
 6. (1,0) O usuário administrador e usuários com permissão de escrita podem submeter
 mensagens no grupo. // OK
 
 7. (1,0) Os membros do grupo podem se enxergar com as suas permissões e também
-visualizar as mensagens (10 por página) // OK - falta paginação
+visualizar as mensagens (10 por página) // OK 
 
 8. (1,0) O usuário pode ver a lista de grupos dos quais faz parte como membro ou
 administrador // OK
@@ -37,8 +37,3 @@ Texto
 Sugestão:
 Crie uma tabela que guarde as relações de grupo e usuários, bem como a
 informação de se o usuário é MEMBRO ou ADMIN do grupo.
-
-
- COISAS A FAZER
-
- mensagem de erro do login
